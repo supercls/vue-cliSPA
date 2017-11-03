@@ -1,7 +1,7 @@
 <template>
     <header class="clearfix">
-        <span class="left"><a href="/">{{megleft}}</a></span>
-        <span class="right" @click="changes"><a :href="meghref"> {{megright}}</a></span>
+        <span class="left"><router-link :to="{path:'/'}">{{megleft}}</router-link></span>
+        <span class="right" @click="changes"><router-link :to="meghref">{{megright}}</router-link></span>
     </header>
 </template>
 
@@ -16,7 +16,7 @@ export default {
             default:'第二页'
         },
         meghref:{
-            default:'#/secound'
+            default:'/secound'
         }
     },
     data (){

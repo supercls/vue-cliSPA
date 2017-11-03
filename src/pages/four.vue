@@ -13,7 +13,7 @@
             return {
                 megleft:'返回',
                 megright:'首页',
-                hrefs:'#/'
+                hrefs:'/'
             }
         },
         components:{

@@ -2,7 +2,9 @@
     <div>
         <headers :megleft="megleft" :megright="megright" :meghref="hrefs"></headers>
         <p>我是页面二组件</p>
-        <a href="#/four">6666</a>
+        <router-link :to="{path:'/'}">跳转到首页</router-link>
+        <router-link to="/secound/five">跳转到第四个</router-link>
+        <router-link :to="hrefDs">跳转到首页</router-link>
         <router-view></router-view>
     </div>
 
@@ -16,7 +18,8 @@ export default {
         return{
             megleft:'首页',
             megright:'第三页',
-            hrefs:'#/four'
+            hrefs:'/four',
+            hrefDs:'/'   //需传参来执行跳转
         }
     },
     components:{

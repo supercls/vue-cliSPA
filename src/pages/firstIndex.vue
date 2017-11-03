@@ -18,7 +18,7 @@ export default {
         return{
             megleft:'首页',
             megright:'第二页',
-            hrefs:'#/secound'
+            hrefs:'/secound'
         }
     },
     methods:{
