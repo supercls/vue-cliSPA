@@ -2,6 +2,7 @@
     <div>
         <headers :megleft="megleft" :megright="megright" :meghref="hrefs"></headers>
         <p>我是第三个页面,meiyou子路由</p>
+        <p>路由传递的参数值为{{this.$route.params}}</p>
     </div>
 </template>
 
@@ -18,7 +19,11 @@
         },
         components:{
             headers
+        },
+        mounted:function(){
+            console.log(this.$route)
         }
+
     }
 </script>
 <style scoped>

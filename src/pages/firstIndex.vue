@@ -1,6 +1,7 @@
 <template>
     <div id="app ">
-        <headertop :megleft="megleft" :megright="megright" :meghref="hrefs" @chas="getchas"></headertop>
+        <headertop :megleft="megleft" :megright="megright" :meghref="hrefs" @chas="getchas" ></headertop>
+        <button @click="chuandi">传参数到下一个页面</button>
         <hello></hello>
         <contents></contents>
         <footerbottom></footerbottom>
@@ -16,14 +17,28 @@ export default {
     name:'firstindex',
     data: function () {
         return{
-            megleft:'首页',
+            megleft:'返回',
             megright:'第二页',
-            hrefs:'/secound'
+            hrefs:{
+                path:'/secound', //通过路由传递参数过去
+                query:{
+                    userId:'123'
+                }
+            }
         }
     },
     methods:{
         getchas: function (e) {
            console.log(e)  //获取从header组件中传过来的数据
+        },
+        chuandi: function () {
+            this.$router.push({
+                path:"/secound",      //当没有name属性不能用name时候，用query传递
+                query:{
+                    user:'cls',
+                    type:'555888999'
+                }
+            })
         }
     },
     components:{
@@ -31,6 +46,9 @@ export default {
         footerbottom,
         headertop,
         contents
+    },
+    mounted: function () {
+        console.log(this.$route.params)
     }
 }
 </script>
