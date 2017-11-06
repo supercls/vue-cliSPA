@@ -11,7 +11,7 @@ import NotFoundComponent from '@/pages/404'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',  //在创建的 router 对象中，如果不配置 mode，就会使用默认的 hash 模式前面加上#.
+ // mode: 'history',  //在创建的 router 对象中，如果不配置 mode，就会使用默认的 hash 模式前面加上#.
   routes: [
     {
       path: '/',

@@ -4,7 +4,7 @@
         <button @click="chuandi">传参数到下一个页面</button>
         <hello></hello>
         <contents></contents>
-        <footerbottom></footerbottom>
+        <footerbottom v-show="footerShow"></footerbottom>
     </div>
 </template>
 
@@ -13,6 +13,7 @@ import hello from '../components/HelloWorld'
 import footerbottom from '../components/footer'
 import headertop from '../components/header'
 import contents from '../components/content'
+import {mapGetters} from 'vuex'
 export default {
     name:'firstindex',
     data: function () {
@@ -27,6 +28,15 @@ export default {
             }
         }
     },
+    components:{
+        hello,
+        footerbottom,
+        headertop,
+        contents
+    },
+    computed:{
+        ...mapGetters(['footerShow','loginstate']),   //多个工具函数直接复制对象属性；
+    },
     methods:{
         getchas: function (e) {
            console.log(e)  //获取从header组件中传过来的数据
@@ -39,17 +49,34 @@ export default {
                     type:'555888999'
                 }
             })
+        },
+        footerchange:function(path){
+            if(path=='/'){
+                this.$store.dispatch('showFooter'); //触发action 提交到mutation
+                this.$store.dispatch('loginsuccess');
+            }
+            else{
+                alert(55)
+                this.$store.dispatch('hideFooter');
+            }
         }
     },
-    components:{
-        hello,
-        footerbottom,
-        headertop,
-        contents
+    watch:{
+        $route(to){
+            var path=to.path;
+            this.footerchange(path);
+        }
     },
-    mounted: function () {
-        console.log(this.$route.params)
+    mounted(){
+        var path=this.$route.path;
+        this.footerchange(path);
+        this.$store.state.userinfore='888'
+     //   _g.owner.settings('55')
+       // console.log(_g.owner.settings())
+    //   _g.useSessions('8888')
+        //console.log(_g.useSessions())
     }
+
 }
 </script>
 <style>

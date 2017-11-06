@@ -4,8 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
-import store from './vuex/store'
-import $ from 'jquery'
+import store from './store/store'
 import './assets/js/flex_rem.js'
 
 
@@ -13,12 +12,13 @@ import './assets/js/flex_rem.js'
 require('./assets/css/mui.css')
 require('./assets/css/style.css')
 
-
+Vue.use(Vuex)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   template: '<App/>',
   components: { App }
