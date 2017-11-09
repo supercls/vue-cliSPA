@@ -27,11 +27,11 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: process.env.PORT || 6870,
+    port: process.env.PORT || 9854,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+   // proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
@@ -41,7 +41,7 @@ module.exports = {
     //解决开发环境跨域问题
     proxyTable: {
       '/api': {
-        target: 'http://image.baidu.com',
+        target: 'http://192.168.6.252:50000',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

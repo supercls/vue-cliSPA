@@ -113,6 +113,16 @@ i{font-style: normal;}
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+.fzs-ellipsis-3 {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 .new_Qbi_img1{display: none}
 /*********pc端判断按需加载***********/
 @media only screen and (min-width: 750px) and (max-width: 20000px) {
@@ -233,4 +243,9 @@ i{font-style: normal;}
     }
 .right{
     float: right;
+}
+#app{
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
 }

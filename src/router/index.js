@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import firstindex from '@/pages/firstIndex'
+//import firstindex from '@/pages/firstIndex'
 import secoundindex from '@/pages/secoundIndex'
 import thereindex from '@/pages/there'
 import fourIndex from '@/pages/four'
@@ -15,10 +15,30 @@ export default new Router({
   routes: [
     {
       path: '/',
-      //redirect:'/secound',  //重定向，会访问这个路由
+      redirect:'/login',  //重定向，会访问这个路由
       //alias: '/b',//别名，路劲会变但是路由不会
-      name: 'firstindex',
-      component: firstindex
+     // name: 'firstindex',
+     // component: firstindex
+    },
+    {
+      path:'/index',
+      name:'index',
+      component:resolve => require(['../pages/firstIndex.vue'], resolve),
+      meta: {
+        auth: true,  // 添加该字段，表示进入这个路由是需要登录的
+      },
+      //children:[
+      //  {
+      //    path:'detail',
+      //    name:'detail',
+      //    component:resolve=> require(['../pages/detail.vue'],resolve)
+      //  },
+      //]
+    },
+    {
+      path:'/detail',
+      name:'detail',
+      component:resolve=> require(['../pages/detail.vue'],resolve)
     },
     {
       path:'/secound', //通过路由传递参数过去

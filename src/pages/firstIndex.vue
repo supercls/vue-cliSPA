@@ -51,12 +51,12 @@ export default {
             })
         },
         footerchange:function(path){
-            if(path=='/'){
+            console.log(path)
+            if(path=='/index'){
                 this.$store.dispatch('showFooter'); //触发action 提交到mutation
                 this.$store.dispatch('loginsuccess');
             }
             else{
-                alert(55)
                 this.$store.dispatch('hideFooter');
             }
         }

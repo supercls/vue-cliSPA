@@ -17,7 +17,7 @@ export default {
            default:'第二页'
        },
        meghref:{
-           default:'/secoundx'
+           default:'/secound'
        }
    },
    data (){
